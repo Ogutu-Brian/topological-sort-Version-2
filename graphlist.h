@@ -38,19 +38,17 @@ public:
 
     void addEdge(int x, int y)
     {
-        ListNode *x_node = new ListNode;
         ListNode *y_node = new ListNode;
-
-        x_node->nodeValue = x;
         y_node->nodeValue = y;
 
-        x_node->nextNode = y_node;
+        headArray[x][y].nodeValue = x;
+        headArray[x][y].nextNode = y_node;
 
     }
 
     bool hasEdge(int x,int y)
     {
-        if(headArray[x][y].nextNode->nodeValue == y)
+        if(headArray[x][y].nodeValue != -1)
         {
             return true;
         }
@@ -59,24 +57,23 @@ public:
 
     void printGraph()
     {
-       int a = 0;
-       while(a < numVertices)
-       {
-           cout<<a<<"--->";
-           for(int m = 0; m < numVertices; m++)
-           {
-               if(hasEdge(a,m))
-               {
-                   cout<<m;
-               }
-               else
-               {
-                   cout<<"NULL";
-               }
-           }
-           cout<<"\n";
-       }
+        int a = 0;
+        cout<<"\nAdjacency List:"<<endl;
 
+        while(a < numVertices)
+        {
+            cout<<a;
+            for(int m = 0; m < numVertices; m++)
+            {
+                if(hasEdge(a,m))
+                {
+                    cout<<"--->"<<m;
+                }
+            }
+            cout<<"--->NULL";
+            cout<<endl;
+            a++;
+        }
     }
 
 private:

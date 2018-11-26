@@ -39,12 +39,14 @@ public:
     }
 
     void printGraph(){
+        cout<<"\nAdjacency Matrix :"<<endl;
+
         int a = 0;
         while(a < numVertices)
         {
             for(int j = 0; j < numVertices;j++)
             {
-                cout<<vertexMatrix[a][j]<<" ";
+                cout<<vertexMatrix[a][j]<<"   ";
             }
             cout<<"\n";
             a++;
@@ -53,16 +55,14 @@ public:
 
     int getFirstVertex()
     {
-        int a = 0;
-        while(a < numVertices)
+        for(int a = 0; a < numVertices; a++)
         {
             if(isFirstVertex(a))
             {
                 return a;
             }
-            a++;
         }
-        return 0;
+        return -1;
     }
 
     bool isFirstVertex(int vertex)
@@ -73,13 +73,11 @@ public:
             {
                 return false;
             }
-            else
-            {
-                for(int a = 0; a < numVertices; a++)
-                {
-                    vertexMatrix[a][vertex] = 1;
-                }
-            }
+        }
+        for(int a = 0; a < numVertices; a++)
+        {
+            vertexMatrix[a][vertex] = 1;
+            vertexMatrix[vertex][a] = 0;
         }
         return true;
     }
