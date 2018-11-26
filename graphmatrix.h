@@ -73,6 +73,13 @@ public:
             {
                 return false;
             }
+            else
+            {
+                for(int a = 0; a < numVertices; a++)
+                {
+                    vertexMatrix[a][vertex] = 1;
+                }
+            }
         }
         return true;
     }
