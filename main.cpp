@@ -16,7 +16,6 @@ int main()
     list<int> sortedList;
     list<int> unsortedList;
     Stack<int> stack;
-    bool gotFirstVertex = false;
     int a,b;
 
     cout<<"Enter the name of your file that contains the graph vertices:";
